@@ -8,11 +8,10 @@ func Sum(numbers []int) int {
 	return sum
 }
 
-func SumAll(numbersToSum ...[]int) (sums []int) {
-	lengthOfNumbers := len(numbersToSum)
-	sums = make([]int, lengthOfNumbers) // make创建一个指定大小的新的slice
-	for i, numbers := range numbersToSum {
-		sums[i] = Sum(numbers)
+func SumAll(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum(numbers))
 	}
-	return
+	return sums
 }
